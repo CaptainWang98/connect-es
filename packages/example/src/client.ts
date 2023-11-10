@@ -42,7 +42,9 @@ void (async () => {
 
   const name = await rl.question("What is your name?\n> ");
 
-  for await (const res of client.introduce({ name })) {
+  const introductResponse = client.introduce({ name });
+
+  for await (const res of introductResponse) {
     rl.write(res.sentence + "\n");
   }
 
